@@ -33,18 +33,21 @@
                     <li class="nav-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginButton" role="button">
                         <span class="fa fa-sign-in "></span>Login
                     </a>
                 </span>
             </div>
         </div>
     </nav>
+    <!-- login modal -->
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Login</h4>
+                    <h4 class="modal-title">
+                        Login
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal">
                         &times;
                     </button>
@@ -74,6 +77,7 @@
             </div>
         </div>
     </div>
+    <!--reserve modal-->
     <div id="reserve" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
@@ -86,7 +90,7 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <label for="nog" class="col-form-label">Number of Guests</label>
-
+                         
                         <label class="offset-1">
                             <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
                         </label>
@@ -137,6 +141,7 @@
             </div>
         </div>
     </div>
+    <!--jumbotron-->
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -148,7 +153,7 @@
                     <img src="img/logo.png" class="img-fluid" />
                 </div>
                 <div class="col-12 col-sm-4 align-self-center">
-                    <a role="button" data-toggle="modal" data-target="#reserve" class="btn btn-block btn-warning" data-html="true">Reserve Table</a>
+                    <a id="reserveButton" role="button" class="btn btn-block btn-warning">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -302,15 +307,21 @@
                     $('#mycarousel').carousel('pause');
                     $('#carouselButton').children('span').removeClass('fa-pause');
                     $('#carouselButton').children('span').addClass('fa-play');
-                } else if  ($('#carouselButton').children('span').hasClass('fa-play')) {
+                } else if ($('#carouselButton').children('span').hasClass('fa-play')) {
                     $('#mycarousel').carousel('cycle');
                     $('#carouselButton').children('span').removeClass('fa-play');
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
-            })
-        })
+            });
+            $('#loginButton').click(function() {
+                $('#loginModal').modal('show');
+            });
 
+            $('#reserveButton').click(function() {
+                $('#reserve').modal('show');
+            });
+
+
+        });
     </script>
-</body>
-
-</html>
+</body></html>
